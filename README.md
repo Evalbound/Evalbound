@@ -8,7 +8,7 @@ I design agentic AI systems that fail closed when evidence, dependencies, integr
 
 My work spans deterministic verification, bounded execution, tamper-evident Proof Packs, verifiable memory, trust-graph recovery, multi-agent orchestration, security boundaries, CI/CD, and production acceptance.
 
-Based in Kyiv, Ukraine. Open to research/consortium collaboration around trustworthy agentic systems and to remote AI systems architecture, applied AI, agent platform, verification, and technical product engineering roles.
+Open to research/consortium collaboration around trustworthy agentic systems and to remote AI systems architecture, applied AI, agent platform, verification, and technical product engineering roles.
 
 ## EvidenceBound architecture
 
@@ -107,4 +107,4 @@ SIGNATURE_VALID
 
 For EvidenceBound research, OSS, security and consortium work: **ruslan@evidencebound.org**.
 
-Public materials intentionally exclude private repositories, credentials, customer information, personal address, and telephone number.
+Public materials intentionally exclude private repositories, credentials, customer information, personal address, telephone number, and transient location.
