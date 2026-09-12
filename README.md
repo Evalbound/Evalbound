@@ -1,21 +1,29 @@
 # Ruslan Vrublevskyi
 
-**AI-Native Systems Architect · Creator & Maintainer of EvidenceBound · Founder of SignalReview**
+**AI Systems Architect | AI Solutions Architect | Agentic AI · LLM Systems · Verification | Technical Advisor**
 
-[EvidenceBound](https://evidencebound.org) · `ruslan@evidencebound.org` · [LinkedIn](https://www.linkedin.com/in/ruslan-vrublevskyi) · [ORCID](https://orcid.org/0009-0004-2468-5232)
+Creator of [EvidenceBound](https://evidencebound.org) · Founder of [SignalReview](https://signalreview.co)
 
-I design agentic AI systems that fail closed when evidence, dependencies, integrity, or policy state can no longer be trusted.
+[LinkedIn](https://www.linkedin.com/in/ruslan-vrublevskyi) · [ORCID](https://orcid.org/0009-0004-2468-5232) · `ruslan@evidencebound.org`
 
-My work spans deterministic verification, bounded execution, tamper-evident Proof Packs, verifiable memory, trust-graph recovery, multi-agent orchestration, security boundaries, CI/CD, and production acceptance.
+I design and build AI and agentic systems that need clear trust boundaries, reproducible evidence, controlled execution, and recoverable failure handling.
 
-Open to research/consortium collaboration around trustworthy agentic systems and to remote AI systems architecture, applied AI, agent platform, verification, and technical product engineering roles.
+My work focuses on moving LLM prototypes into operable systems: system architecture, MCP-based tool use, deterministic verification, provenance, policy-as-code, failure containment, recovery, and human approval boundaries.
 
-## EvidenceBound architecture
+I am interested in remote **AI Systems Architect, AI Solutions Architect, Agentic AI Architect, Software Architect, and Technical Advisor** roles where the challenge is turning promising AI capabilities into reliable systems.
 
-**Institutional site:** https://evidencebound.org  
-**Canonical GitHub organization:** https://github.com/evidencebound  
-**Canonical OSS core:** https://github.com/evidencebound/evidencebound-core  
-**Project contact:** ruslan@evidencebound.org
+## Selected public engineering
+
+| Project | What it demonstrates |
+|---|---|
+| [EvidenceBound Core](https://github.com/evidencebound/evidencebound-core) | Framework-agnostic deterministic verification, evidence/provenance/policy-bound state, dependency invalidation, selective recovery, signed-receipt and persistence seams |
+| [EvidenceBound Recovery Mesh](https://github.com/evidencebound/evidencebound-recovery-mesh) | Multi-agent recovery after trust changes, dependency blast-radius analysis, fail-closed action gates, selective recomputation |
+| [EvidenceBound Authority Cut](https://github.com/evidencebound/evidencebound-authority-cut) | Human authority kept outside the model-callable surface, grant/revoke boundaries, correction propagation, reversible compensation |
+| [EvidenceBound DataHub Gate](https://github.com/moneyparking/evidencebound-datahub-gate) | MCP-based Read → Verify → Write-Back governance, VERIFIED/BLOCKED paths, reproducible Proof Packs, mandatory human review |
+| [EvidenceBound Verified Memory](https://github.com/moneyparking/moneyparking-evidencebound-verified-memory) | Persisted verified decisions, historical-integrity checks, T0 → T1 evidence comparison, current-applicability re-evaluation with CockroachDB and AWS |
+| [SignalReview / Qwen Agent Society](https://github.com/moneyparking/Signalreview-Alibaba-Qwen) | Four-role adversarial agent workflow, structured output validation, visible unavailable domains, bounded verdicts and fail-closed handling |
+
+## EvidenceBound control pattern
 
 EvidenceBound is a systems approach for making AI-generated actions inspectable, reproducible, challengeable, and blockable.
 
@@ -37,61 +45,17 @@ Mandatory human or policy-controlled decision
 
 The LLM may interpret bounded evidence. It does not grant itself trust, hide unavailable inputs, override deterministic gates, or authorize unsafe side effects.
 
-## Selected public implementations
-
-| Project | Architectural problem | Verified implementation |
-|---|---|---|
-| [EvidenceBound Core](https://github.com/evidencebound/evidencebound-core) | Bind agent state to evidence/provenance/policy and recover selectively after trust changes | Framework-agnostic Python runtime, deterministic verification, dependency blast-radius analysis, fail-closed selective recovery, signed-receipt and persistence seams, conformance corpus, supply-chain attestations |
-| [EvidenceBound Recovery Mesh](https://github.com/evidencebound/evidencebound-recovery-mesh) | Recover an agent fleet after one checkpoint becomes untrustworthy without restarting safe work | Google ADK, Vertex AI / Gemini 3.5 Flash, Cloud Run, Agent Registry, Secret Manager, Workload Identity Federation, Trust Graph blast-radius analysis, fail-closed action gate, selective recomputation |
-| [EvidenceBound Authority Cut](https://github.com/evidencebound/evidencebound-authority-cut) | Keep human authority outside the model-callable surface and propagate later correction through reversible descendants | Strands Agents, semantic authority atoms, external-human-only grant/revoke boundary, correction propagation, reversible compensation, Amazon Bedrock AgentCore Runtime acceptance |
-| [EvidenceBound ReleaseProof](https://github.com/evidencebound/evidencebound-releaseproof-dws) | Preserve prior human review only when changed document evidence remains semantically equivalent under the frozen historical policy | Differential reverification, frozen evidence-equivalence policy, source-grounded findings, page-local blast radius, Nutrient DWS integration |
-| [EvidenceBound DataHub Gate](https://github.com/moneyparking/evidencebound-datahub-gate) | Decide whether an agent-generated data action is bound to current metadata before human review | Historical competition repository retained at its original URL for submission reproducibility; Official DataHub MCP, schema and bounded-lineage binding, Restricted AST Policy, no-`exec` bounded interpreter, SHA-256 Proof Packs, Ed25519 seals, native DataHub description write-back |
-| [EvidenceBound Verified Memory](https://github.com/moneyparking/moneyparking-evidencebound-verified-memory) | Reopen prior agent state and prove what changed rather than merely recalling an answer | Historical competition repository retained at its original URL for submission reproducibility; CockroachDB persistence, canonical snapshots, integrity verification, T0 → T1 comparison, AWS Lambda, S3, CloudFormation, GitHub OIDC → AWS STS |
-| [Governed Codex Module Factory](https://devpost.com/software/signalreview-autonomous-multi-agent-ai) | Generate analytics modules without granting generated code automatic deployment authority | Codex workflow, isolated execution, validation gates, sealed review artifacts, mandatory human review |
-| [Forensic Multi-Agent Sports Intelligence](https://github.com/moneyparking/Signalreview-Alibaba-Qwen) | Produce a bounded verdict from adversarial agent roles without inventing unavailable provider facts | Qwen Cloud, four-role evidence-first review, visible missing-data states, orchestrated bounded verdict |
-| [SignalReview](https://signalreview.co) | Turn structured match evidence into a retained, transparent decision-support workflow | Next.js, TypeScript, React, Python, FastAPI, PostgreSQL, Supabase, Docker, GitHub Actions, Vercel, Render, Cloudflare |
-
-### Recovery Mesh production evidence
-
-A controlled production run compared a full restart with selective recovery:
-
-- full restart: 4 model calls / 1,781 input tokens;
-- selective recovery: 3 model calls / 1,358 input tokens;
-- saved in that exact run: 1 model call / 423 input tokens (~24%).
-
-This is a measured result from one controlled run, not a universal savings claim. The current bounded Cloud Run slice does not claim durable multi-week memory.
-
-### DataHub reproducibility
-
-```bash
-git clone https://github.com/moneyparking/evidencebound-datahub-gate.git
-cd evidencebound-datahub-gate
-make test-repro
-```
-
-Expected retained states include:
-
-```text
-VERIFIED
-BLOCKED: SCHEMA_MISMATCH
-REPRODUCED
-ARTIFACT_TAMPERING_DETECTED
-SIGNATURE_VALID
-```
-
-`VERIFIED` is deliberately narrow. It does not mean production authorization, data truth, certification, or permission to deploy.
-
 ## Architecture and engineering focus
 
-- AI-native systems and agent platform architecture
-- Agentic AI, MCP, Google ADK, OpenAI, and Qwen Cloud
+- AI systems and agent platform architecture
+- Agentic AI, LLM systems, MCP, Google ADK, OpenAI, Qwen Cloud
 - Deterministic runtimes, restricted execution, and fail-closed controls
-- Verification contracts, canonicalization, provenance, and content addressing
+- Verification contracts, provenance, canonicalization, and content addressing
 - Verifiable memory, dependency graphs, invalidation, and selective recovery
 - Python, TypeScript, Next.js, React, FastAPI, Pydantic, SQL
 - PostgreSQL, Supabase, CockroachDB, AWS, Google Cloud, Vercel, Render, Cloudflare
 - Docker, GitHub Actions, OIDC/WIF, pytest, Ruff, Mypy, security and release gates
-- Product strategy, monetization, QA, deployment, and production acceptance
+- Product strategy, QA, deployment, release acceptance, and commercialization planning
 
 ## Public evidence
 
@@ -101,17 +65,11 @@ SIGNATURE_VALID
 - [EvidenceBound Recovery Mesh](https://github.com/evidencebound/evidencebound-recovery-mesh)
 - [EvidenceBound Authority Cut](https://github.com/evidencebound/evidencebound-authority-cut)
 - [EvidenceBound ReleaseProof](https://github.com/evidencebound/evidencebound-releaseproof-dws)
+- [EvidenceBound DataHub Gate](https://github.com/moneyparking/evidencebound-datahub-gate)
+- [EvidenceBound Verified Memory](https://github.com/moneyparking/moneyparking-evidencebound-verified-memory)
+- [SignalReview / Qwen](https://github.com/moneyparking/Signalreview-Alibaba-Qwen)
 - [EvidenceBound maintainer profile](https://evidencebound.org/#maintainer)
-- [Machine-readable EvidenceBound identity](https://evidencebound.org/identity/ruslan-vrublevskyi.json)
-- [EvidenceBound reference implementations](https://evidencebound.org/#implementations)
-- [EvidenceBound research lineage](https://evidencebound.org/#research)
-- [LinkedIn](https://www.linkedin.com/in/ruslan-vrublevskyi)
-- [ORCID](https://orcid.org/0009-0004-2468-5232)
+- [Machine-readable identity](https://evidencebound.org/identity/ruslan-vrublevskyi.json)
 - [Historical EvidenceBound-MAS whitepaper](https://signalreview.co/docs/EvidenceBound_MAS_Verifiable_Evidence_for_Human_Decision_Making_2026.pdf)
-- [Recovery Mesh on Devpost](https://devpost.com/software/evidencebound-recovery-mesh)
-- [DataHub Gate on Devpost](https://devpost.com/software/evidencebound-datahub-gate)
-- [Verified Memory on Devpost](https://devpost.com/software/evidencebound-verified-memory)
-
-For EvidenceBound research, OSS, security and consortium work: **ruslan@evidencebound.org**.
 
 Public materials intentionally exclude private repositories, credentials, customer information, personal address, telephone number, and transient location.
