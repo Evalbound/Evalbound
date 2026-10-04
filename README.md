@@ -38,4 +38,4 @@ The first independently authored external submissions are open.
 
 ## Links
 
-[EvidenceBound](https://evidencebound.org) · [LinkedIn](https://www.linkedin.com/in/ruslan-vrublevskyi) · [ORCID](https://orcid.org/0009-0004-2468-5232)
+[EvidenceBound](https://evidencebound.org) · [GitHub: EvidenceBound](https://github.com/evidencebound) · [LinkedIn](https://www.linkedin.com/in/ruslan-vrublevskyi) · [ORCID](https://orcid.org/0009-0004-2468-5232)
